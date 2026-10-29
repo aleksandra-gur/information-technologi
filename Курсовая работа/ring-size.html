@@ -1,0 +1,195 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-XXXXXXXXXX');
+  </script>
+  <title>Как узнать размер кольца дома — калькулятор и таблица — «Огранка»</title>
+  <meta name="description" content="Калькулятор размера кольца по длине нити или по внутреннему диаметру своего кольца. Таблица размеров в PDF и промокод SIZE5 на примерку.">
+  <link rel="canonical" href="https://tz-25-yuvelirnaya-masterskaya-ogranka.vercel.app/ring-size.html">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Огранка — ювелирная мастерская">
+  <meta property="og:locale" content="ru_RU">
+  <meta property="og:url" content="https://tz-25-yuvelirnaya-masterskaya-ogranka.vercel.app/ring-size.html">
+  <meta property="og:title" content="Как узнать размер кольца дома — калькулятор и таблица — «Огранка»">
+  <meta property="og:description" content="Калькулятор размера кольца по длине нити или по внутреннему диаметру своего кольца. Таблица размеров в PDF и промокод SIZE5 на примерку.">
+  <meta property="og:image" content="https://tz-25-yuvelirnaya-masterskaya-ogranka.vercel.app/img/og/og-ring-size.jpg">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="theme-color" content="#23201C">
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+  <link rel="icon" href="favicon-32.png" sizes="32x32" type="image/png">
+  <link rel="apple-touch-icon" href="apple-touch-icon.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@600;700&amp;family=Inter:wght@400;600&amp;display=swap">
+  <link rel="stylesheet" href="css/style.css">
+  <script src="js/analytics.js" defer></script>
+  <script src="js/main.js" defer></script>
+  <script src="js/ring-size.js" defer></script>
+</head>
+<body>
+<a class="skip-link" href="#main">Перейти к содержанию</a>
+<header class="site-header">
+  <div class="container header-inner">
+    <a class="logo" href="index.html" aria-label="Огранка — на главную">
+      <img src="favicon.svg" alt="" width="36" height="36">
+      <span class="logo-text"><strong>ОГРАНКА</strong><small>ювелирная мастерская</small></span>
+    </a>
+    <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="site-nav">
+      <span class="nav-toggle-bar" aria-hidden="true"></span>
+      <span class="visually-hidden">Открыть меню</span>
+    </button>
+    <nav class="site-nav" id="site-nav" aria-label="Основное меню">
+      <ul>
+        <li><a href="index.html">Главная</a></li>
+        <li><a href="rings.html">Каталог</a></li>
+        <li><a href="constructor.html">Конструктор</a></li>
+        <li><a href="engraving.html">Гравировка</a></li>
+        <li><a href="workshop.html">Мастер-класс</a></li>
+        <li><a href="ring-size.html" aria-current="page">Размер</a></li>
+        <li><a href="contacts.html">Запись</a></li>
+      </ul>
+      <a class="header-phone" href="tel:+79005252552" data-event="contact_click" data-contact-type="phone" data-page-section="header">+7 (900) 525-25-52</a>
+    </nav>
+  </div>
+</header>
+<main id="main">
+<section class="page-hero">
+  <div class="container">
+    <p class="eyebrow">Размер кольца</p>
+    <h1>Как узнать размер кольца дома</h1>
+    <p class="lead">Размер кольца — это внутренний диаметр в миллиметрах. Его можно узнать за 2 минуты: по нитке вокруг пальца или по кольцу, которое вам подходит.</p>
+  </div>
+</section>
+
+<section class="section" style="padding-top:24px" aria-labelledby="calc-title">
+  <div class="container size-grid">
+    <form class="card calc" id="size-calc" novalidate aria-labelledby="calc-title">
+      <h2 id="calc-title">Калькулятор размера</h2>
+      <fieldset class="choice-group">
+        <legend>Способ</legend>
+        <div class="choices">
+          <label class="choice"><input type="radio" name="method" value="thread" checked><span>По нити</span></label>
+          <label class="choice"><input type="radio" name="method" value="diameter"><span>По своему кольцу</span></label>
+        </div>
+      </fieldset>
+      <div class="field" id="field-thread">
+        <label for="thread-length">Длина нити вокруг пальца, мм</label>
+        <input type="text" id="thread-length" inputmode="decimal" autocomplete="off" placeholder="например, 55">
+        <p class="field-hint">Обмотайте нитку вокруг основания пальца, отметьте место встречи концов и измерьте линейкой. Размер = длина / 3,14.</p>
+      </div>
+      <div class="field" id="field-diameter" hidden>
+        <label for="ring-diameter">Внутренний диаметр кольца, мм</label>
+        <input type="text" id="ring-diameter" inputmode="decimal" autocomplete="off" placeholder="например, 17,5">
+        <p class="field-hint">Положите кольцо на линейку и измерьте расстояние между внутренними краями. Размер = диаметр.</p>
+      </div>
+      <button class="btn btn-primary" type="submit">Рассчитать размер</button>
+      <div class="calc-result" id="size-result" aria-live="polite" hidden></div>
+    </form>
+    <img src="img/ring-size.webp" alt="Нить обмотана вокруг пальца, рядом линейка для измерения длины" width="800" height="600" loading="lazy" style="border-radius:16px">
+  </div>
+</section>
+
+<section class="section section-alt" aria-labelledby="table-title">
+  <div class="container">
+    <div class="card pdf-block">
+      <div>
+        <h2 id="table-title">Таблица размеров PDF</h2>
+        <p>Размеры от 14 до 23 с шагом 0,5: диаметр и длина окружности пальца. Распечатайте и сверьте с нитью.</p>
+      </div>
+      <a class="btn btn-primary" href="files/ring-size-table.pdf" download>Скачать таблицу (PDF)</a>
+    </div>
+    <details style="margin-top:20px">
+      <summary style="cursor:pointer;min-height:44px;font-weight:600">Показать таблицу на странице</summary>
+      <div class="table-wrap">
+        <table class="size-table">
+          <thead><tr><th scope="col">Размер</th><th scope="col">Внутренний диаметр</th><th scope="col">Длина нити</th></tr></thead>
+          <tbody>
+            <tr><td>14</td><td>14 мм</td><td>44 мм</td></tr>
+            <tr><td>14,5</td><td>14,5 мм</td><td>46 мм</td></tr>
+            <tr><td>15</td><td>15 мм</td><td>47 мм</td></tr>
+            <tr><td>15,5</td><td>15,5 мм</td><td>49 мм</td></tr>
+            <tr><td>16</td><td>16 мм</td><td>50 мм</td></tr>
+            <tr><td>16,5</td><td>16,5 мм</td><td>52 мм</td></tr>
+            <tr><td>17</td><td>17 мм</td><td>53 мм</td></tr>
+            <tr><td>17,5</td><td>17,5 мм</td><td>55 мм</td></tr>
+            <tr><td>18</td><td>18 мм</td><td>57 мм</td></tr>
+            <tr><td>18,5</td><td>18,5 мм</td><td>58 мм</td></tr>
+            <tr><td>19</td><td>19 мм</td><td>60 мм</td></tr>
+            <tr><td>19,5</td><td>19,5 мм</td><td>61 мм</td></tr>
+            <tr><td>20</td><td>20 мм</td><td>63 мм</td></tr>
+            <tr><td>20,5</td><td>20,5 мм</td><td>64 мм</td></tr>
+            <tr><td>21</td><td>21 мм</td><td>66 мм</td></tr>
+            <tr><td>21,5</td><td>21,5 мм</td><td>68 мм</td></tr>
+            <tr><td>22</td><td>22 мм</td><td>69 мм</td></tr>
+            <tr><td>22,5</td><td>22,5 мм</td><td>71 мм</td></tr>
+            <tr><td>23</td><td>23 мм</td><td>72 мм</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </details>
+  </div>
+</section>
+
+<section class="section" aria-labelledby="promo-title">
+  <div class="container narrow">
+    <div class="card promo">
+      <h2 id="promo-title">Промокод на примерку</h2>
+      <p class="muted">Назовите промокод менеджеру, когда записываетесь на примерку.</p>
+      <div class="promo-row">
+        <span class="promo-code">SIZE5</span>
+        <button class="btn btn-ghost" type="button" id="promo-copy" data-event="promo_copy" data-promo-code="SIZE5">Скопировать</button>
+      </div>
+      <p class="promo-status" id="promo-status" aria-live="polite"></p>
+    </div>
+  </div>
+</section>
+
+<section class="section cta-band">
+  <div class="container cta-inner">
+    <div>
+      <h2>Размер узнали — запишитесь на примерку</h2>
+      <p>Примерка бесплатно. Мастер проверит размер на кольцах-образцах и рассчитает цену.</p>
+    </div>
+    <a class="btn btn-light" id="size-cta" href="contacts.html?lead_type=fitting" data-event="cta_click" data-button-name="size_fitting" data-page-section="ring_size_bottom">Записаться на примерку</a>
+  </div>
+</section>
+</main>
+<footer class="site-footer">
+  <div class="container footer-grid">
+    <div>
+      <p class="footer-logo">ОГРАНКА</p>
+      <p>Обручальные и помолвочные кольца на заказ из серебра 925 и золота 585. Работаем с 2020 года.</p>
+      <p>614 103, г. Новоозёрск, ул. Златая, д. 25, мастерская 2</p>
+    </div>
+    <div>
+      <p class="footer-title">Связаться</p>
+      <p><a href="tel:+79005252552" data-event="contact_click" data-contact-type="phone" data-page-section="footer">+7 (900) 525-25-52</a><br>
+      <a href="mailto:atelier@ogranka.example" data-event="contact_click" data-contact-type="email" data-page-section="footer">atelier@ogranka.example</a></p>
+    </div>
+    <div>
+      <p class="footer-title">Мы в соцсетях</p>
+      <ul class="pill-list">
+        <li><a class="pill" href="https://www.instagram.com/ogranka_jewelry/" target="_blank" rel="noopener" data-event="social_click" data-network="instagram" data-page-section="footer">Instagram</a></li>
+        <li><a class="pill" href="https://vk.com/ogranka_jewelry" target="_blank" rel="noopener" data-event="social_click" data-network="vk" data-page-section="footer">ВКонтакте</a></li>
+        <li><a class="pill" href="https://t.me/ogranka_jewelry" target="_blank" rel="noopener" data-event="social_click" data-network="telegram" data-page-section="footer">Telegram</a></li>
+        <li><a class="pill" href="https://www.youtube.com/@ogranka_jewelry" target="_blank" rel="noopener" data-event="social_click" data-network="youtube" data-page-section="footer">YouTube</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="container footer-bottom">
+    <p>© 2026 ИП Гордеева Мария Львовна. ИНН 992504125507</p>
+    <p><a href="privacy.html">Политика конфиденциальности</a></p>
+  </div>
+</footer>
+</body>
+</html>
