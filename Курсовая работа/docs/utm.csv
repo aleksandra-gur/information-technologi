@@ -1,4 +1,0 @@
-campaign,source,medium,content,landing_url,purpose
-test_instagram,instagram,social,reel,https://ogranka.vercel.app/order.html?utm_source=instagram&utm_medium=social&utm_campaign=test,Контрольная проверка формы и UTM
-ogranka_instagram,instagram,social,profile,https://ogranka.vercel.app/?utm_source=instagram&utm_medium=social&utm_campaign=ogranka_instagram,Переход из профиля Instagram
-ogranka_vk,vk,social,post,https://ogranka.vercel.app/?utm_source=vk&utm_medium=social&utm_campaign=ogranka_vk,Переход из публикации VK
