@@ -1,0 +1,132 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-XXXXXXXXXX');
+  </script>
+  <title>Гравировка на кольце: предпросмотр надписи — «Огранка»</title>
+  <meta name="description" content="Напишите текст гравировки до 20 символов и выберите один из трёх шрифтов — надпись появится на изображении кольца. Гравировка — 1 200 ₽.">
+  <link rel="canonical" href="https://tz-25-yuvelirnaya-masterskaya-ogranka.vercel.app/engraving.html">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Огранка — ювелирная мастерская">
+  <meta property="og:locale" content="ru_RU">
+  <meta property="og:url" content="https://tz-25-yuvelirnaya-masterskaya-ogranka.vercel.app/engraving.html">
+  <meta property="og:title" content="Гравировка на кольце: предпросмотр надписи — «Огранка»">
+  <meta property="og:description" content="Напишите текст гравировки до 20 символов и выберите один из трёх шрифтов — надпись появится на изображении кольца. Гравировка — 1 200 ₽.">
+  <meta property="og:image" content="https://tz-25-yuvelirnaya-masterskaya-ogranka.vercel.app/img/og/og-engraving.jpg">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="theme-color" content="#23201C">
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+  <link rel="icon" href="favicon-32.png" sizes="32x32" type="image/png">
+  <link rel="apple-touch-icon" href="apple-touch-icon.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@600;700&amp;family=Inter:wght@400;600&amp;display=swap">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bad+Script&amp;family=Marck+Script&amp;display=swap">
+  <link rel="stylesheet" href="css/style.css">
+  <script src="js/analytics.js" defer></script>
+  <script src="js/main.js" defer></script>
+  <script src="js/engraving.js" defer></script>
+</head>
+<body>
+<a class="skip-link" href="#main">Перейти к содержанию</a>
+<header class="site-header">
+  <div class="container header-inner">
+    <a class="logo" href="index.html" aria-label="Огранка — на главную">
+      <img src="favicon.svg" alt="" width="36" height="36">
+      <span class="logo-text"><strong>ОГРАНКА</strong><small>ювелирная мастерская</small></span>
+    </a>
+    <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="site-nav">
+      <span class="nav-toggle-bar" aria-hidden="true"></span>
+      <span class="visually-hidden">Открыть меню</span>
+    </button>
+    <nav class="site-nav" id="site-nav" aria-label="Основное меню">
+      <ul>
+        <li><a href="index.html">Главная</a></li>
+        <li><a href="rings.html">Каталог</a></li>
+        <li><a href="constructor.html">Конструктор</a></li>
+        <li><a href="engraving.html" aria-current="page">Гравировка</a></li>
+        <li><a href="workshop.html">Мастер-класс</a></li>
+        <li><a href="ring-size.html">Размер</a></li>
+        <li><a href="contacts.html">Запись</a></li>
+      </ul>
+      <a class="header-phone" href="tel:+79005252552" data-event="contact_click" data-contact-type="phone" data-page-section="header">+7 (900) 525-25-52</a>
+    </nav>
+  </div>
+</header>
+<main id="main">
+<section class="page-hero">
+  <div class="container">
+    <p class="eyebrow">Гравировка</p>
+    <h1>Как будет выглядеть надпись</h1>
+    <p class="lead">Гравировку наносим на внутреннюю сторону кольца. Стоимость — 1&nbsp;200&nbsp;₽ за кольцо. Введите текст до 20 символов и выберите шрифт.</p>
+  </div>
+</section>
+
+<section class="section" style="padding-top:24px">
+  <div class="container engrave">
+    <form class="card engrave-form" id="engrave-form" aria-label="Текст и шрифт гравировки">
+      <div class="field">
+        <label for="engrave-text">Текст гравировки</label>
+        <input type="text" id="engrave-text" name="text" maxlength="20" autocomplete="off" value="Навсегда · 2027" aria-describedby="engrave-counter">
+        <p class="counter" id="engrave-counter" aria-live="polite">15 из 20 символов</p>
+      </div>
+      <fieldset class="choice-group">
+        <legend>Шрифт</legend>
+        <div class="choices" style="flex-direction:column">
+          <label class="choice"><input type="radio" name="font" value="cormorant_garamond" data-family="'Cormorant Garamond', serif" checked><span><span class="font-sample" style="font-family:'Cormorant Garamond', serif">Навсегда</span><small>Строгий с засечками · Cormorant Garamond</small></span></label>
+          <label class="choice"><input type="radio" name="font" value="marck_script" data-family="'Marck Script', cursive"><span><span class="font-sample" style="font-family:'Marck Script', cursive">Навсегда</span><small>Рукописный · Marck Script</small></span></label>
+          <label class="choice"><input type="radio" name="font" value="bad_script" data-family="'Bad Script', cursive"><span><span class="font-sample" style="font-family:'Bad Script', cursive">Навсегда</span><small>Каллиграфический · Bad Script</small></span></label>
+        </div>
+      </fieldset>
+    </form>
+
+    <figure class="preview" aria-live="polite">
+      <img src="img/engraving-ring.webp" alt="Внутренняя сторона золотого кольца — место для гравировки" width="1200" height="520">
+      <span class="preview-text" id="engrave-preview" style="font-family:'Cormorant Garamond', serif">Навсегда · 2027</span>
+      <figcaption>Предпросмотр: так надпись ляжет на внутреннюю сторону кольца. Точное расположение мастер согласует на примерке.</figcaption>
+    </figure>
+  </div>
+  <div class="container" style="margin-top:28px">
+    <a class="btn btn-primary" href="constructor.html?engraving=1" data-event="cta_click" data-button-name="engraving_constructor" data-page-section="engraving_preview">Рассчитать цену с гравировкой</a>
+  </div>
+</section>
+</main>
+<footer class="site-footer">
+  <div class="container footer-grid">
+    <div>
+      <p class="footer-logo">ОГРАНКА</p>
+      <p>Обручальные и помолвочные кольца на заказ из серебра 925 и золота 585. Работаем с 2020 года.</p>
+      <p>614 103, г. Новоозёрск, ул. Златая, д. 25, мастерская 2</p>
+    </div>
+    <div>
+      <p class="footer-title">Связаться</p>
+      <p><a href="tel:+79005252552" data-event="contact_click" data-contact-type="phone" data-page-section="footer">+7 (900) 525-25-52</a><br>
+      <a href="mailto:atelier@ogranka.example" data-event="contact_click" data-contact-type="email" data-page-section="footer">atelier@ogranka.example</a></p>
+    </div>
+    <div>
+      <p class="footer-title">Мы в соцсетях</p>
+      <ul class="pill-list">
+        <li><a class="pill" href="https://www.instagram.com/ogranka_jewelry/" target="_blank" rel="noopener" data-event="social_click" data-network="instagram" data-page-section="footer">Instagram</a></li>
+        <li><a class="pill" href="https://vk.com/ogranka_jewelry" target="_blank" rel="noopener" data-event="social_click" data-network="vk" data-page-section="footer">ВКонтакте</a></li>
+        <li><a class="pill" href="https://t.me/ogranka_jewelry" target="_blank" rel="noopener" data-event="social_click" data-network="telegram" data-page-section="footer">Telegram</a></li>
+        <li><a class="pill" href="https://www.youtube.com/@ogranka_jewelry" target="_blank" rel="noopener" data-event="social_click" data-network="youtube" data-page-section="footer">YouTube</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="container footer-bottom">
+    <p>© 2026 ИП Гордеева Мария Львовна. ИНН 992504125507</p>
+    <p><a href="privacy.html">Политика конфиденциальности</a></p>
+  </div>
+</footer>
+</body>
+</html>
