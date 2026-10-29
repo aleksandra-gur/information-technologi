@@ -2,8 +2,8 @@
 
 | Что | Ссылка |
 |---|---|
-| Сайт (GitHub Pages) | https://aleksandra-gur.github.io/information-technologi/%D0%9A%D1%83%D1%80%D1%81%D0%BE%D0%B2%D0%B0%D1%8F%20%D1%80%D0%B0%D0%B1%D0%BE%D1%82%D0%B0/ |
-| Репозиторий | https://github.com/aleksandra-gur/information-technologi (сайт — в папке «Курсовая работа») |
+| Сайт на Vercel | https://ogranka.vercel.app |
+| Репозиторий | https://github.com/aleksandra-gur/information-technologi (сайт — в папке «Курсовая работа», Vercel: Root Directory = «Курсовая работа») |
 | Таблица заявок «Ogranka — Leads» | ___ |
 | Дашборд DataLens «ОГРАНКА — wedding_2027» | ___ |
 | Instagram (профиль мастерской) | ___ |
@@ -48,6 +48,6 @@
 - И-04: пустой телефон и «123» — форма не отправляется, у поля ошибка, `form_error`.
 - И-13: золото 585, 3 мм, без камня, с гравировкой — 27 500 ₽ за кольцо, `ring_build` с `total_price = 27500`.
 
-Не получилось: опубликовать сайт на Vercel — вход в аккаунт Vercel не удался, сайт опубликован на GitHub Pages и так же обновляется после каждого push в main; репозиторий называется information-technologi, а не tz-25-yuvelirnaya-masterskaya-ogranka. ___
+Не получилось: назвать репозиторий tz-25-yuvelirnaya-masterskaya-ogranka — работа лежит в репозитории information-technologi, папка «Курсовая работа». ___
 
 Нейросеть использовалась для: ___
