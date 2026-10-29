@@ -1,4 +1,3 @@
-
 <!doctype html>
 <html lang="ru">
 <head>
@@ -47,7 +46,9 @@
 
           <div class="field">
             <label for="phone">Телефон *</label>
-            <input id="phone" name="phone" type="tel" required>
+            <input id="phone" name="phone" type="tel" required
+                   pattern="^\+?[0-9\s()\-]{10,18}$"
+                   title="Введите корректный номер телефона (не менее 10 цифр)">
           </div>
 
           <div class="field">
@@ -86,7 +87,7 @@
         </label>
 
         <button class="btn" type="submit" data-track="lead_form_submit">Отправить заявку ↗</button>
-        <div class="success"></div>
+        <div class="success" role="status" aria-live="polite"></div>
         <p class="notice">Учебный проект. Перед реальным использованием необходимо проверить обработку персональных данных.</p>
       </form>
     </section>
