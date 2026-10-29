@@ -1,4 +1,3 @@
-
 const APPS_SCRIPT_URL = "https://script.google.com/macros/s/AKfycbz86c4_yTk6Hz718O1w-TeT8CZBPd62W_vad3i_dEXOiID5K9tBN2zyTqYNzjmhQ5LB/exec";
 
 const GA_MEASUREMENT_ID = "G-37574R54DC";
@@ -14,14 +13,13 @@ document.addEventListener("DOMContentLoaded", () => {
     "utm_term"
   ];
 
-  // Отправка события в GA4 без персональных данных.
   function trackEvent(eventName, parameters = {}) {
     if (typeof window.gtag === "function") {
       window.gtag("event", eventName, parameters);
     }
   }
 
-  // Сохраняем UTM-метки между страницами.
+  // Сохраняем только реально переданные UTM.
   utmNames.forEach((name) => {
     const value = params.get(name);
     if (value) {
@@ -32,237 +30,129 @@ document.addEventListener("DOMContentLoaded", () => {
   function fillUtmFields(form) {
     utmNames.forEach((name) => {
       const field = form.querySelector(`[name="${name}"]`);
-
       if (field) {
-        field.value =
-          sessionStorage.getItem(name) ||
-          params.get(name) ||
-          "";
+        field.value = params.get(name) ||
+          sessionStorage.getItem(name) || "";
       }
     });
   }
 
-  // Отслеживаем клики по элементам с data-track.
+  // Генерация уникального идентификатора заявки.
+  function createRequestId() {
+    if (window.crypto && typeof window.crypto.randomUUID === "function") {
+      return window.crypto.randomUUID();
+    }
+    return "req-" + Date.now() + "-" +
+      Math.random().toString(36).slice(2);
+  }
+
+  // Отслеживание кнопок.
   document.querySelectorAll("[data-track]").forEach((element) => {
     element.addEventListener("click", () => {
       trackEvent(element.dataset.track, {
-        page_location: window.location.href
+        button_name: element.dataset.track,
+        page_section: element.closest("section")?.className || "unknown"
       });
     });
   });
 
-  // Дополнительно отслеживаем переходы по основным ссылкам.
+  // Отслеживание контактов и мессенджеров.
   document.querySelectorAll("a[href]").forEach((link) => {
     link.addEventListener("click", () => {
-      const href = link.getAttribute("href") || "";
+      const href = link.href.toLowerCase();
 
-      if (
-        href.includes("order.html") ||
-        href.includes("contacts.html")
-      ) {
-        trackEvent("contact_link_click", {
-          link_url: href,
-          page_path: window.location.pathname
+      if (/tel:|mailto:/.test(href)) {
+        trackEvent("contact_click", {
+          button_name: link.textContent.trim().slice(0, 50)
+        });
+      }
+
+      if (/wa\.me|whatsapp|t\.me|telegram|viber/.test(href)) {
+        let messenger = "other";
+        if (/wa\.me|whatsapp/.test(href)) messenger = "whatsapp";
+        if (/t\.me|telegram/.test(href)) messenger = "telegram";
+        if (/viber/.test(href)) messenger = "viber";
+
+        trackEvent("messenger_click", { messenger });
+      }
+
+      if (/instagram|vk\.com|facebook|youtube/.test(href)) {
+        trackEvent("social_click", {
+          social_network: href.includes("instagram") ? "instagram" :
+            href.includes("vk.com") ? "vk" :
+            href.includes("youtube") ? "youtube" : "facebook"
         });
       }
     });
   });
 
-  // Отправка заявок в Google Sheets.
-  document.querySelectorAll("form[data-lead-form], form").forEach((form) => {
-    const submitButton = form.querySelector(
-      'button[type="submit"], input[type="submit"]'
-    );
+  // Отправка заявок.
+  document.querySelectorAll("form[data-lead-form]").forEach((form) => {
+    const submitButton = form.querySelector('[type="submit"]');
+    const status = form.querySelector(".success") ||
+      form.querySelector("[data-form-status]") ||
+      form.querySelector("#status");
+
+    fillUtmFields(form);
+
+    form.addEventListener("input", () => {
+      if (!form.dataset.formStarted) {
+        form.dataset.formStarted = "true";
+        trackEvent("form_start", {
+          form_id: form.id || "lead_form"
+        });
+      }
+    });
 
     form.addEventListener("submit", async (event) => {
       event.preventDefault();
 
       fillUtmFields(form);
 
+      const phone = form.querySelector('[name="phone"]');
+      const digits = (phone?.value || "").replace(/\D/g, "");
+
+      if (!phone || digits.length < 10 || digits.length > 15) {
+        if (phone) {
+          phone.setCustomValidity("Введите корректный номер телефона");
+          phone.reportValidity();
+          phone.addEventListener("input", () => {
+            phone.setCustomValidity("");
+          }, { once: true });
+        }
+
+        trackEvent("form_error", {
+          field_name: "phone",
+          error_type: "invalid_phone"
+        });
+        return;
+      }
+
+      if (!form.reportValidity()) {
+        trackEvent("form_error", {
+          field_name: "form",
+          error_type: "validation_error"
+        });
+        return;
+      }
+
       const formData = new FormData(form);
       const data = {};
 
       formData.forEach((value, key) => {
-        // Не отправляем поля согласия и другие checkbox в объект заявки.
-        if (key !== "consent") {
-          data[key] = String(value);
-        }
+        data[key] = String(value);
       });
 
       utmNames.forEach((name) => {
-        data[name] =
-          data[name] || sessionStorage.getItem(name) || "";
+        data[name] = params.get(name) ||
+          sessionStorage.getItem(name) || "";
       });
 
       data.page_url = window.location.href;
-
-      const status =
-        form.querySelector(".success") ||
-        form.querySelector("#status") ||
-        form.querySelector("[data-form-status]") ||
-        document.querySelector("#status");
+      data.request_id = createRequestId();
 
       if (submitButton) {
         submitButton.disabled = true;
-        submitButton.dataset.originalText =
-          submitButton.textContent || "Отправить";
+        submitButton.dataset.originalText = submitButton.textContent;
         submitButton.textContent = "Отправляем...";
-      }
-
-      if (status) {
-        status.textContent = "Отправляем заявку...";
-      }
-
-      trackEvent("generate_lead", {
-        form_id: form.id || "lead_form",
-        page_path: window.location.pathname
-      });
-
-      try {
-        await fetch(
-          form.dataset.endpoint || APPS_SCRIPT_URL,
-          {
-            method: "POST",
-            mode: "no-cors",
-            headers: {
-              "Content-Type": "text/plain;charset=utf-8"
-            },
-            body: JSON.stringify(data)
-          }
-        );
-
-        if (status) {
-          status.textContent =
-            "Запрос отправлен. Проверьте, появилась ли заявка в таблице.";
-        }
-
-        // Не очищаем форму, чтобы введённые данные не потерялись,
-        // если запись не появилась в таблице.
-      } catch (error) {
-        console.error("Ошибка отправки заявки:", error);
-
-        if (status) {
-          status.textContent =
-            "Не удалось отправить заявку. Попробуйте ещё раз.";
-        }
-
-        trackEvent("lead_form_error", {
-          page_path: window.location.pathname
-        });
-      } finally {
-        if (submitButton) {
-          submitButton.disabled = false;
-          submitButton.textContent =
-            submitButton.dataset.originalText || "Отправить";
-        }
-      }
-    });
-  });
-
-  // Калькулятор стоимости кольца.
-  const priceOutput = document.querySelector("[data-ring-price]");
-  const material = document.querySelector("[name='material']");
-  const width = document.querySelector("[name='width']");
-  const stones = document.querySelector("[name='stones']");
-
-  function updatePrice() {
-    if (!priceOutput) return;
-
-    const materialPrices = {
-      silver: 5000,
-      gold: 25000,
-      platinum: 45000
-    };
-
-    const base = materialPrices[material?.value] || 5000;
-    const widthValue = Number(width?.value || 3);
-    const stonesValue = stones?.checked ? 8000 : 0;
-
-    const price = Math.round(
-      base * (widthValue / 3) + stonesValue
-    );
-
-    priceOutput.textContent =
-      price.toLocaleString("ru-RU") + " ₽";
-  }
-
-  let priceEventSent = false;
-
-  function trackPriceInteraction() {
-    if (!priceEventSent) {
-      trackEvent("ring_calculator_use");
-      priceEventSent = true;
-    }
-  }
-
-  [material, width, stones].forEach((element) => {
-    element?.addEventListener("input", () => {
-      updatePrice();
-      trackPriceInteraction();
-    });
-
-    element?.addEventListener("change", () => {
-      updatePrice();
-      trackPriceInteraction();
-    });
-  });
-
-  updatePrice();
-
-  // Предпросмотр гравировки.
-  const engravingInput = document.querySelector("[name='engraving']");
-  const engravingPreview = document.querySelector(
-    "[data-engraving-preview]"
-  );
-
-  function updateEngraving() {
-    if (!engravingInput || !engravingPreview) return;
-
-    engravingPreview.textContent =
-      engravingInput.value || "Ваша надпись";
-  }
-
-  let engravingEventSent = false;
-
-  engravingInput?.addEventListener("input", () => {
-    updateEngraving();
-
-    if (!engravingEventSent) {
-      trackEvent("engraving_preview_use");
-      engravingEventSent = true;
-    }
-  });
-
-  updateEngraving();
-
-  // Калькулятор размера кольца: отслеживаем использование,
-  // если на странице есть соответствующие элементы.
-  const sizeCalculator = document.querySelector(
-    "[data-size-calculator]"
-  );
-
-  if (sizeCalculator) {
-    sizeCalculator.addEventListener("input", () => {
-      if (!sizeCalculator.dataset.analyticsTracked) {
-        trackEvent("ring_size_calculator_use");
-        sizeCalculator.dataset.analyticsTracked = "true";
-      }
-    });
-  }
-
-  // Переключение мобильного меню, если кнопка есть на странице.
-  const menuToggle = document.querySelector(".menu-toggle");
-  const navigation = document.querySelector("nav");
-
-  menuToggle?.addEventListener("click", () => {
-    const isExpanded =
-      menuToggle.getAttribute("aria-expanded") === "true";
-
-    menuToggle.setAttribute("aria-expanded", String(!isExpanded));
-    navigation?.classList.toggle("is-open", !isExpanded);
-
-    trackEvent("mobile_menu_toggle", {
-      menu_state: !isExpanded ? "open" : "closed"
-    });
-  });
-});
+     
