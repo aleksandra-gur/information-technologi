@@ -11,8 +11,8 @@
  *    «Выполнять как: я», «Доступ: все». Полученный URL вставить в js/form.js (ENDPOINT).
  */
 
-// Пусто — берётся таблица, из которой открыт редактор (Расширения → Apps Script)
-const SPREADSHEET_ID = '';
+// ID таблицы «Ogranka — Leads» (проект Apps Script отдельный, не привязан к таблице)
+const SPREADSHEET_ID = '1gGxW4NPZy1Jje3vyyhhl-iZ9qCr3vMAf8Kw2TtwhhpU';
 const SHEET_NAME = 'leads';
 
 const HEADERS = ['request_id', 'created_at', 'name', 'phone', 'email', 'lead_type', 'metal', 'width_mm',
