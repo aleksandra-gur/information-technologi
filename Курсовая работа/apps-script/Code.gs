@@ -42,7 +42,7 @@ function doPost(e) {
       data.request_id,
       new Date(),                                      // created_at ставит приёмник
       data.name,
-      data.phone,
+      "'" + data.phone,                                // апостроф: «+7…» остаётся текстом, а не числом
       data.email,
       data.lead_type,
       data.metal,
