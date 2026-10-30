@@ -6,7 +6,7 @@
 | Репозиторий | https://github.com/aleksandra-gur/information-technologi (сайт — в папке «Курсовая работа», Vercel: Root Directory = «Курсовая работа») |
 | Таблица заявок «Ogranka — Leads» | https://docs.google.com/spreadsheets/d/1gGxW4NPZy1Jje3vyyhhl-iZ9qCr3vMAf8Kw2TtwhhpU/edit (лист leads) |
 | Дашборд DataLens «ОГРАНКА — wedding_2027» | ___ |
-| Instagram (профиль мастерской) | ___ |
+| Instagram (профиль мастерской) | https://www.instagram.com/aleksandragurnak/ |
 | Reel «Как мы отливаем кольцо: от воска до золота» (автоответы РАЗМЕР и САМИ) | ___ |
 | ВКонтакте: пост в сообществе (U-05) | ___ |
 | ВКонтакте: пост в группе организаторов (U-06) | ___ |
