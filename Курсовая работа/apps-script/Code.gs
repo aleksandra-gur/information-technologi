@@ -238,8 +238,9 @@ function setupUtmSheet() {
 
   const formulas = values.map(function (r, i) {
     const n = i + 2;
-    return ['=CONCATENATE($P$1,"/",I' + n + ',"?utm_source=",D' + n + ',"&utm_medium=",E' + n +
-      ',"&utm_campaign=",F' + n + ',"&utm_content=",G' + n + ',"&utm_term=",H' + n + ')'];
+    // Оператор & вместо СЦЕПИТЬ: формула не зависит от разделителя аргументов (, или ;) в настройках таблицы
+    return ['=$P$1&"/"&I' + n + '&"?utm_source="&D' + n + '&"&utm_medium="&E' + n +
+      '&"&utm_campaign="&F' + n + '&"&utm_content="&G' + n + '&"&utm_term="&H' + n];
   });
   sheet.getRange(2, 10, formulas.length, 1).setNumberFormat('General').setFormulas(formulas);
   sheet.autoResizeColumns(1, 9);
