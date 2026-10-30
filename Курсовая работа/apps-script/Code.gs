@@ -201,6 +201,50 @@ function setupSheet() {
   sheet.autoResizeColumns(1, HEADERS.length);
 }
 
+/* ---------------- Реестр UTM-ссылок (лист utm, раздел 5.3) ---------------- */
+
+const UTM_SITE = 'https://ogranka.vercel.app';
+const UTM_HEADERS = ['номер', 'канал', 'размещение', 'utm_source', 'utm_medium', 'utm_campaign', 'utm_content',
+  'utm_term', 'страница', 'полная ссылка', 'короткая ссылка', 'адрес публикации', 'дата публикации', 'комментарий'];
+// Без полной ссылки: её собирает формула в столбце J
+const UTM_ROWS = [
+    ['U-01', 'Instagram', 'ссылка в шапке профиля', 'instagram', 'social', 'wedding_2027', 'bio', 'wedding_rings', 'index.html', '', '', '', ''],
+    ['U-02', 'Instagram', 'автоответ под Reel (ManyChat), ветка «РАЗМЕР»', 'instagram', 'social', 'wedding_2027', 'reel_casting_01', 'ring_size', 'ring-size.html', '', '', '', ''],
+    ['U-03', 'Instagram', 'автоответ, ветка «САМИ»', 'instagram', 'social', 'workshop_2026', 'reel_casting_01_diy', 'workshop_diy', 'workshop.html', '', '', '', ''],
+    ['U-04', 'Instagram', 'ссылка-стикер «Собери своё кольцо» в Stories', 'instagram', 'social', 'wedding_2027', 'stories_01', 'ring_constructor', 'constructor.html', '', '', '', 'content: первая сторис со стикером — stories_01 по правилу 5.1.4'],
+    ['U-05', 'ВКонтакте', 'пост в сообществе', 'vk', 'social', 'wedding_2027', 'post_01', 'wedding_rings', 'rings.html', 'https://clck.ru/3WmEzE', '', '', ''],
+    ['U-06', 'ВКонтакте', 'пост в группе свадебных организаторов', 'vk', 'referral', 'wedding_2027', 'wedding_group', 'ring_constructor', 'constructor.html', 'https://clck.ru/3WmEzF', '', '', 'campaign: пост приглашает пары на примерку к сезону 2027, как и вся кампания'],
+    ['U-07', 'Telegram', 'пост в канале', 'telegram', 'social', 'wedding_2027', 'post_01', 'ring_constructor', 'constructor.html', 'https://clck.ru/3WmEzG', '', '', ''],
+    ['U-08', 'Telegram', 'пост о мастер-классе', 'telegram', 'social', 'workshop_2026', 'post_02', 'workshop_diy', 'workshop.html', 'https://clck.ru/3WmEzH', '', '', 'content: второй пост канала — post_02, чтобы отличать его от U-07'],
+    ['U-09', 'YouTube', 'описание видео «От воска до золота»', 'youtube', 'social', 'wedding_2027', 'video_casting_01', 'wedding_rings', 'rings.html', '', '', '', 'content: первое видео о литье колец'],
+    ['U-10', 'Блогер 1', 'ссылка у свадебного блогера', 'anna_wedding', 'affiliate', 'wedding_2027', 'stories_01', 'ring_constructor', 'constructor.html', '', '', '', 'source: ник однокурсницы-блогера латиницей (заменить на настоящий); content — формат: сторис'],
+    ['U-11', 'Блогер 2', 'ссылка у фотографа-партнёра', 'max_photo', 'affiliate', 'wedding_2027', 'post_01', 'wedding_rings', 'rings.html', '', '', '', 'source: ник однокурсника-фотографа (заменить на настоящий); content — формат: пост'],
+    ['U-12', 'Футляры', 'QR-код на вкладыше в футляр', 'box_qr', 'qr', 'care_2027', 'jewelry_box', 'engraving', 'engraving.html', '', '', '', 'QR: docs/qr-u-12.png, афиша: docs/afisha.pdf']
+];
+
+/* Запустить один раз: создаёт лист utm. Полная ссылка (J) — формула из столбцов меток,
+   адрес сайта — в ячейке P1. Короткие ссылки, адрес и дата публикации дальше заполняются вручную. */
+function setupUtmSheet() {
+  const ss = openSpreadsheet_();
+  const sheet = ss.getSheetByName('utm') || ss.insertSheet('utm');
+  sheet.clear();
+  sheet.getRange(1, 1, 1, UTM_HEADERS.length).setValues([UTM_HEADERS]).setFontWeight('bold').setBackground('#F7F3EC');
+  sheet.getRange('O1').setValue('адрес сайта');
+  sheet.getRange('P1').setValue(UTM_SITE);
+  sheet.setFrozenRows(1);
+
+  const values = UTM_ROWS.map(function (r) { return r.slice(0, 9).concat([''], r.slice(9)); });
+  sheet.getRange(2, 1, values.length, UTM_HEADERS.length).setNumberFormat('@').setValues(values);
+
+  const formulas = values.map(function (r, i) {
+    const n = i + 2;
+    return ['=CONCATENATE($P$1,"/",I' + n + ',"?utm_source=",D' + n + ',"&utm_medium=",E' + n +
+      ',"&utm_campaign=",F' + n + ',"&utm_content=",G' + n + ',"&utm_term=",H' + n + ')'];
+  });
+  sheet.getRange(2, 10, formulas.length, 1).setNumberFormat('General').setFormulas(formulas);
+  sheet.autoResizeColumns(1, 9);
+}
+
 /* Ручная проверка приёмника из редактора: Выполнить → testDoPost.
    Первая отправка запишет строку, вторая с тем же request_id вернёт ошибку (испытание И-05). */
 function testDoPost() {

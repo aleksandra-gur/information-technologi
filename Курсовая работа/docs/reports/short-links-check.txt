@@ -1,0 +1,5 @@
+Проверка коротких ссылок clck.ru (30.10.2026): переход по ссылке → итоговый адрес
+https://clck.ru/3WmEzE -> https://ogranka.vercel.app/rings.html?utm_source=vk&utm_medium=social&utm_campaign=wedding_2027&utm_content=post_01&utm_term=wedding_rings [HTTP 200]
+https://clck.ru/3WmEzF -> https://ogranka.vercel.app/constructor.html?utm_source=vk&utm_medium=referral&utm_campaign=wedding_2027&utm_content=wedding_group&utm_term=ring_constructor [HTTP 200]
+https://clck.ru/3WmEzG -> https://ogranka.vercel.app/constructor.html?utm_source=telegram&utm_medium=social&utm_campaign=wedding_2027&utm_content=post_01&utm_term=ring_constructor [HTTP 200]
+https://clck.ru/3WmEzH -> https://ogranka.vercel.app/workshop.html?utm_source=telegram&utm_medium=social&utm_campaign=workshop_2026&utm_content=post_02&utm_term=workshop_diy [HTTP 200]
