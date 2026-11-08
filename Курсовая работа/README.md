@@ -1,68 +1,71 @@
-# Сайт ювелирной мастерской «Огранка» — ТЗ-25/2026
+# «Огранка» — сайт ювелирной мастерской
 
-| Что | Ссылка |
+Курсовой проект по дисциплине **ОП.03 «Информационные технологии»**, ТЗ-25/2026.
+
+**Исполнитель:** Гурняк Александра  
+**Группа:** 9/2-РПО-25/3
+
+## Проект
+
+- **Сайт:** [ogranka.vercel.app](https://ogranka.vercel.app/)
+- **Репозиторий:** [information-technologi](https://github.com/aleksandra-gur/information-technologi)
+- **Google Таблица заявок:** [Ogranka — Leads](https://docs.google.com/spreadsheets/d/1gGxW4NPZy1Jje3vyyhhl-iZ9qCr3vMAf8Kw2TtwhhpU/edit)
+- **DataLens:** [ОГРАНКА — аналитика заявок](https://datalens.yandex/6hmnsmye8ykap?_share_link=public)
+- **GA4:** `G-37574R54DC`
+- **Telegram:** [@ogranka_sait_bot](https://t.me/ogranka_sait_bot) — визуальный прототип, без автоматической обработки команд.
+
+## Функциональность сайта
+
+- Каталог из 18 моделей колец с фильтрами и просмотром изображений.
+- Конструктор кольца с выбором параметров и предварительным расчётом стоимости.
+- Раздел гравировки с предварительным просмотром.
+- Калькулятор и таблица размеров.
+- Страницы мастер-класса, контактов, благодарности и политики конфиденциальности.
+- Адаптивная вёрстка.
+- Форма заявки с проверкой полей и UTM-метками.
+
+## Интеграции
+
+- **Google Apps Script + Google Sheets:** приём и хранение заявок. Отправка формы проверена пользователем.
+- **GA4:** подключение проверено в отчёте реального времени; во время проверки отображались 1 активный пользователь за 30 минут и события `first_visit`, `page_view`, `scroll`, `session_start`.
+- **Yandex DataLens:** создан дашборд по данным заявок.
+- **Telegram:** оформлен демонстрационный профиль и меню. Бот не является полноценной автоматизацией.
+- **Социальные публикации:** не создавались.
+
+## Материалы
+
+| Материал | Ссылка |
 |---|---|
-| Сайт на Vercel | https://ogranka.vercel.app |
-| Репозиторий | https://github.com/aleksandra-gur/information-technologi (сайт — в папке «Курсовая работа», Vercel: Root Directory = «Курсовая работа») |
-| Таблица заявок «Ogranka — Leads» | https://docs.google.com/spreadsheets/d/1gGxW4NPZy1Jje3vyyhhl-iZ9qCr3vMAf8Kw2TtwhhpU/edit (лист leads) |
-| Дашборд DataLens «ОГРАНКА — аналитика заявок» | https://datalens.yandex/6hmnsmye8ykap?_share_link=public |
-| Telegram-бот «Огранка» (визуальный прототип) | https://t.me/ogranka_sait_bot |
-| Instagram (профиль мастерской) | https://www.instagram.com/aleksandragurnak/ |
-| Reel «Как мы отливаем кольцо: от воска до золота» (автоответы РАЗМЕР и САМИ) | Ссылка на публикацию пока не добавлена |
-| ВКонтакте: пост в сообществе (U-05) | Ссылка на публикацию пока не добавлена |
-| ВКонтакте: пост в группе организаторов (U-06) | Ссылка на публикацию пока не добавлена |
-| Telegram: пост в канале (U-07) | Ссылка на публикацию пока не добавлена |
-| Telegram: пост о мастер-классе (U-08) | Ссылка на публикацию пока не добавлена |
-| YouTube: видео «От воска до золота» (U-09) | Ссылка на публикацию пока не добавлена |
-| Блогеры-партнёры (U-10, U-11) | Ссылка на публикацию пока не добавлена |
+| Бланк сдачи и чек-лист | [kursovaya.md](kursovaya.md) |
+| Описание проекта | [docs/opisanie.md](docs/opisanie.md) |
+| Аналитическая записка | [docs/report.md](docs/report.md) |
+| Технический аудит | [docs/status-audit.md](docs/status-audit.md) |
+| Сценарии приёмки | [docs/acceptance.md](docs/acceptance.md) |
+| События GA4 | [docs/events.md](docs/events.md) |
+| UTM-реестр | [docs/utm.csv](docs/utm.csv) |
+| Тексты публикаций (заготовки) | [docs/posts.md](docs/posts.md) |
+| Журнал работы с нейросетью | [docs/prompts.md](docs/prompts.md) |
+| Инструкция по сервисам | [docs/setup.md](docs/setup.md) |
+| Схема проекта | [docs/scheme.svg](docs/scheme.svg) |
+| Скриншоты | [screenshots/](screenshots/) |
+| Презентация PPTX | [presentation/Ogranka_prezentaciya_final.pptx](presentation/Ogranka_prezentaciya_final.pptx) |
+| План презентации и текст выступления | [presentation/prezentaciya.md](presentation/prezentaciya.md) |
+| Афиша PDF | [docs/afisha.pdf](docs/afisha.pdf) |
+| QR-код | [docs/qr-u-12.png](docs/qr-u-12.png) |
+| Таблица размеров PDF | [files/ring-size-table.pdf](files/ring-size-table.pdf) |
 
-Идентификатор ресурса GA4 «ОГРАНКА — сайт»: `G-37574R54DC`
+## Технологии
 
-Настройки GA4 (30.10.2026): ресурс переименован в «ОГРАНКА — сайт», часовой пояс (GMT+03:00) Москва, валюта RUB; веб-поток https://ogranka.vercel.app с расширенной статистикой (все 7 пунктов, включая формы и скачивания); 7 специальных параметров уровня события — `screens/ga4/custom-dimensions.png`. Из ключевых событий сняты созданные GA4 автоматически `close_convert_lead` и `qualify_lead`; `purchase` GA4 снять не даёт (встроенное событие, кнопка заблокирована), на сайте оно не отправляется. Ключевыми отмечаются `generate_lead`, `contact_click`, `messenger_click` — звёздочку можно поставить, когда события появятся в списке «Администратор → События» (до 24 часов после первой отправки 30.10.2026).
+HTML, CSS, JavaScript, Google Analytics 4, Google Apps Script, Google Sheets, Yandex DataLens, Vercel.
 
-Доступ Viewer к ресурсу GA4: не подтверждён; необходимо проверить выдачу доступа Заказчику.
+## Структура проекта
 
-## Состав репозитория
+- `index.html`, `rings.html`, `constructor.html` и остальные HTML-файлы — страницы сайта.
+- `css/` — стили.
+- `js/` — логика каталога, конструктора, аналитики, формы и калькулятора размера.
+- `img/` — изображения сайта и карточек изделий.
+- `apps-script/` — серверный обработчик заявок.
+- `docs/` — описание, аналитика, инструкции и вспомогательные материалы.
+- `screenshots/` — собранные подтверждающие снимки.
+- `presentation/` — презентация и материалы к защите.
 
-| Путь | Что внутри |
-|---|---|
-| `index.html` … `privacy.html`, `404.html` | 9 страниц сайта и страница 404 (обычный HTML, без сборки) |
-| `css/style.css` | Стили: фирменные цвета и шрифты, вёрстка 375 / 768 / 1280 px |
-| `js/analytics.js` | Все вызовы `gtag('event', …)`: кнопки описаны атрибутами `data-event` |
-| `js/form.js` | Форма заявки: проверка, UTM-метки, отправка в Apps Script, `generate_lead` |
-| `js/prices.js`, `js/constructor.js` | Формула цены и конструктор кольца |
-| `js/catalog.js`, `js/engraving.js`, `js/ring-size.js`, `js/main.js` | Каталог, гравировка, калькулятор размера, общий код |
-| `img/`, `files/` | Иллюстрации (WebP, OG-картинки JPEG) и таблица размеров PDF |
-| `apps-script/Code.gs` | Приёмник заявок и настройка листа `leads` |
-| `docs/prompts.md` | Журнал запросов к нейросети |
-| `docs/events.md` | Таблица 20 событий: файл и строка, параметры |
-| `docs/utm.csv` | Реестр 12 ссылок с UTM-метками |
-| `docs/images.md` | Источники изображений |
-| `docs/report.md` | Аналитическая записка |
-| `docs/afisha.pdf`, `docs/qr-u-12.png` | Вкладыш в футляр A4 и QR-код ссылки U-12 |
-| `docs/setup.md` | Пошаговая инструкция по сервисам (GA4, Таблица, ManyChat, DataLens) |
-| `docs/posts.md`, `docs/acceptance.md` | Тексты публикаций; подготовка к приёмке |
-| `screens/…` | Снимки: ga4, utm, instagram, reports, explore, datalens, lighthouse |
-
-## Проверено нейросетью до публикации
-
-- 10 страниц на ширине 375, 768 и 1280 px — без горизонтальной прокрутки; у всех изображений есть `alt`; кнопки не меньше 44 px.
-- События с параметрами: `ring_filter`, `view_item`, `gallery_view`, `cta_click`, `ring_build`, `engraving_preview`, `ring_size_calc`, `promo_copy`, `workshop_view`, `form_error`.
-- И-04: пустой телефон и «123» — форма не отправляется, у поля ошибка, `form_error`.
-- И-13: золото 585, 3 мм, без камня, с гравировкой — 27 500 ₽ за кольцо, `ring_build` с `total_price = 27500`.
-
-Проект размещён в существующем репозитории information-technologi, в папке «Курсовая работа». Отдельный репозиторий проекта не создавался.
-
-Нейросеть использовалась для анализа ТЗ, структуры сайта, текстов, HTML/CSS/JavaScript, иллюстраций, документов и тестирования. Подробности приведены в docs/prompts.md.
-
-## Материалы курсовой работы
-
-- [Бланк сдачи и ссылки](kursovaya.md)
-- [Описание работы](docs/opisanie.md)
-- [Схема проекта](docs/scheme.svg)
-- [Материалы презентации к защите](presentation/prezentaciya.md)
-- [Технический аудит и непроверенные интеграции](docs/status-audit.md)
-- [Шаблон README](shablon_README.md)
-- [Шаблон описания работы](shablon_opisanie.md)
-
-По текущим материалам проекта подготовлены описание, технический аудит и 12-слайдовая презентация (PDF/PPTX переданы отдельными файлами). Фактические показатели GA4/DataLens, ссылки на публикации и подтверждающие скриншоты не подменялись демонстрационными данными: их необходимо добавить после проверки интеграций.
