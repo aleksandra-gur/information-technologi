@@ -12,8 +12,8 @@
 
 | Найти | Заменить на | Где |
 |---|---|---|
-| `G-XXXXXXXXXX` | идентификатор ресурса GA4 «ОГРАНКА — сайт» (шаг 2) | все 10 HTML-файлов |
-| `var ENDPOINT = '';` | `var ENDPOINT = 'https://script.google.com/macros/s/…/exec';` — URL веб-приложения (шаг 3) | `js/form.js` |
+| `G-37574R54DC` | уже установленный Measurement ID ресурса GA4 «ОГРАНКА — сайт». Проверено по всем 10 HTML-страницам; менять только при переходе на другой ресурс | все 10 HTML-файлов |
+| `ENDPOINT` | в `js/form.js` уже указан URL веб-приложения Apps Script. Не заменяйте его на пустую строку. Если создаёте новое развёртывание, вставьте новый URL `/exec` и повторите контрольную отправку | `js/form.js` |
 | `https://www.instagram.com/ogranka_jewelry/`, `https://vk.com/ogranka_jewelry`, `https://t.me/ogranka_jewelry`, `https://www.youtube.com/@ogranka_jewelry` | адреса созданных вами страниц мастерской | подвал всех страниц, thanks.html |
 | `https://ogranka.vercel.app` | новый адрес сайта, если он поменяется | все HTML (canonical, og:url, og:image), `docs/utm.csv` |
 | `anna_wedding`, `max_photo` | ники двух однокурсников латиницей | `docs/utm.csv`, лист `utm` |
@@ -52,6 +52,8 @@
 ---
 
 ## 3. Этап «Заявки» (день 11): Google Таблица и Apps Script
+
+**Текущее состояние по исходникам:** `js/form.js` содержит непустой `ENDPOINT`; `apps-script/Code.gs` содержит `doPost`, `doGet`, проверку данных, защиту от повторного `request_id` и запись в лист `leads`. Это подтверждает связность кода, но не доказывает, что текущее развёртывание Apps Script активно и доступно. Перед сдачей откройте URL `/exec` в браузере (ожидается JSON со статусом сервиса), затем отправьте одну контрольную заявку с сайта и проверьте строку в таблице.
 
 1. Google Таблицы → новая таблица **Ogranka — Leads**.
 2. **Расширения → Apps Script** → вставьте весь `apps-script/Code.gs` → сохраните. `SPREADSHEET_ID` можно оставить пустым: скрипт возьмёт эту таблицу.
