@@ -6,6 +6,7 @@
 | Репозиторий | https://github.com/aleksandra-gur/information-technologi (сайт — в папке «Курсовая работа», Vercel: Root Directory = «Курсовая работа») |
 | Таблица заявок «Ogranka — Leads» | https://docs.google.com/spreadsheets/d/1gGxW4NPZy1Jje3vyyhhl-iZ9qCr3vMAf8Kw2TtwhhpU/edit (лист leads) |
 | Дашборд DataLens «ОГРАНКА — аналитика заявок» | https://datalens.yandex/6hmnsmye8ykap?_share_link=public |
+| Telegram-бот «Огранка» (визуальный прототип) | https://t.me/ogranka_sait_bot |
 | Instagram (профиль мастерской) | https://www.instagram.com/aleksandragurnak/ |
 | Reel «Как мы отливаем кольцо: от воска до золота» (автоответы РАЗМЕР и САМИ) | Ссылка на публикацию пока не добавлена |
 | ВКонтакте: пост в сообществе (U-05) | Ссылка на публикацию пока не добавлена |
@@ -53,7 +54,6 @@
 Проект размещён в существующем репозитории information-technologi, в папке «Курсовая работа». Отдельный репозиторий проекта не создавался.
 
 Нейросеть использовалась для анализа ТЗ, структуры сайта, текстов, HTML/CSS/JavaScript, иллюстраций, документов и тестирования. Подробности приведены в docs/prompts.md.
-
 
 ## Материалы курсовой работы
 
