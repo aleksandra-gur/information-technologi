@@ -11,13 +11,13 @@
 | Что | Ссылка |
 |---|---|
 | Репозиторий проекта | https://github.com/aleksandra-gur/information-technologi |
-| Папка проекта | [Курсовая работа](https://github.com/aleksandra-gur/information-technologi/tree/main/%D0%9A%D1%83%D1%80%D1%81%D0%BE%D0%B2%D0%B0%D1%8F%20%D1%80%D0%B0%D0%B1%D0%BE%D1%82%D0%B0) |
+| Папка проекта | [Курсовая работа](https://github.com/aleksandra-gur/information-technologi/tree/main/%D0%9A%D1%83%D1%80%D1%81%D0%B0%D1%8F%20%D1%80%D0%B0%D0%B1%D0%BE%D1%82%D0%B0) |
 | Сайт на Vercel | https://ogranka.vercel.app |
 | Описание работы | [docs/opisanie.md](docs/opisanie.md) |
 | Схема решения | [docs/scheme.svg](docs/scheme.svg) |
 | Материалы презентации | [presentation/prezentaciya.md](presentation/prezentaciya.md) |
 | Таблица заявок | https://docs.google.com/spreadsheets/d/1gGxW4NPZy1Jje3vyyhhl-iZ9qCr3vMAf8Kw2TtwhhpU/edit |
-| Дашборд DataLens | Ссылка не внесена |
+| Дашборд DataLens | https://datalens.yandex/6hmnsmye8ykap?_share_link=public |
 | GA4 | Measurement ID: G-37574R54DC |
 
 ## Что реализовано
@@ -40,7 +40,7 @@
 ## Что подтвердить перед сдачей
 
 - [ ] Указать группу в точном формате.
-- [ ] Внести публичную ссылку на дашборд DataLens.
+- [x] Создать дашборд DataLens и добавить публичную ссылку (проверить открытие без авторизации).
 - [ ] Внести ссылки на опубликованные посты и видео, если они созданы.
 - [ ] Подтвердить работу двух веток ManyChat со второго аккаунта и сохранить доказательства.
 - [ ] Проверить отправку заявки с сайта в таблицу и событие generate_lead в GA4.
