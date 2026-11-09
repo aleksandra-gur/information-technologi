@@ -27,7 +27,7 @@
 ## Интеграции
 
 - **Google Apps Script + Google Sheets:** приём и хранение заявок. Отправка формы проверена пользователем.
-- **GA4:** подключение проверено в отчёте реального времени; во время проверки отображались 1 активный пользователь за 30 минут и события `first_visit`, `page_view`, `scroll`, `session_start`.
+- **GA4:** подключение проверено в отчёте реального времени; во время проверки отображались 1 активный пользователь за 30 минут и события `first_visit`, `page_view`, `scroll`, `session_start`. Событие отправки заявки `generate_lead` отдельно не подтверждено.
 - **Yandex DataLens:** создан дашборд по данным заявок.
 - **Telegram:** оформлен демонстрационный профиль и меню. Бот не является полноценной автоматизацией.
 - **Социальные публикации:** не создавались.
@@ -49,6 +49,8 @@
 | Схема проекта | [docs/scheme.svg](docs/scheme.svg) |
 | Скриншоты | [screenshots/](screenshots/) |
 | Презентация PPTX | [presentation/Ogranka_prezentaciya_final.pptx](presentation/Ogranka_prezentaciya_final.pptx) |
+| PDF-версия слайдов | Пока не добавлена; требуется экспортировать из PPTX |
+| PDF со скриншотами | [screenshots/скриншоты.pdf](screenshots/скриншоты.pdf) — отдельный сборник, не экспорт слайдов |
 | План презентации и текст выступления | [presentation/prezentaciya.md](presentation/prezentaciya.md) |
 | Афиша PDF | [docs/afisha.pdf](docs/afisha.pdf) |
 | QR-код | [docs/qr-u-12.png](docs/qr-u-12.png) |
